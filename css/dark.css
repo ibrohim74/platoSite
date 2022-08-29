@@ -1,0 +1,26 @@
+:root {
+    --bg: #28292b;
+    --border: #cccccc;
+    --text: #cccccc;
+    --red: #ff4646;
+    --diff: #57c5c9;
+    --lightWhite: #cccccc;
+    --overlayInvert: invert(1);
+    --overlayOpacity: 1;
+    --exploreBtn: #28292b;
+    --headerFilter: brightness(0.5)
+}
+
+html, body, main, div {
+    color: #ccc
+}
+
+html *, body *, main *, div * {
+    color: inherit
+}
+
+body {
+    background-color: #28292b
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRoZW1lL19kYXJrLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSUEsTUFFRSxhQUFBLENBQUEsaUJBQUEsQ0FBQSxlQUFBLENBQUEsY0FBQSxDQUFBLGVBQUEsQ0FBQSxxQkFBQSxDQUFBLDBCQUFBLENBQUEsbUJBQUEsQ0FBQSxxQkFBQSxDQUFBLCtCQUFBLENBSUYsbUJBSUMsVUFBQSxDQUNBLDJCQUNDLGFBQUEsQ0FJRixLQUNDLHdCQUFBIiwiZmlsZSI6ImRhcmsuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQHVzZSAnLi9jb2xvcnMnO1xuXG4kY29sb3JzOiBjb2xvcnMuZ2V0VGhlbWUoJ2RhcmsnKTtcblxuOnJvb3Qge1xuXHRAZWFjaCAkbmFtZSwgJGNvbG9yIGluICRjb2xvcnMge1xuXHRcdC0tI3skbmFtZX06ICN7JGNvbG9yfTtcblx0fVxufVxuXG5odG1sLFxuYm9keSxcbm1haW4sXG5kaXYge1xuXHRjb2xvcjogbWFwLWdldCgkY29sb3JzLCAndGV4dCcpO1xuXHQqIHtcblx0XHRjb2xvcjogaW5oZXJpdDtcblx0fVxufVxuXG5ib2R5IHtcblx0YmFja2dyb3VuZC1jb2xvcjogbWFwLWdldCgkY29sb3JzLCAnYmcnKTtcbn1cbiJdfQ== */

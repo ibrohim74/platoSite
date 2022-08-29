@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1, maximum-scale=2, minimum-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Pinpoint</title>
+
+    <!-- <link rel="preload" href="../../fonts/Posterama-Bold.ttf" as="font" crossorigin />
+    <link rel="preload" href="../../fonts/FivoSans-Regular.ttf" as="font" crossorigin />
+    <link rel="preload" href="../../fonts/SometypeMono-Regular.ttf" as="font" crossorigin /> -->
+    <!--	<link rel="preload" href="css/main.css" as="style">-->
+
+    <link id="theme-dark" rel="stylesheet" type="text/css" href="css/dark.css" media="(prefers-color-scheme: dark)">
+    <link id="theme-light" rel="stylesheet" type="text/css" href="css/light.css" media="(prefers-color-scheme: light)">
+    <link id="theme" rel="stylesheet" type="text/css" href>
+    <!-- <link id="theme" rel="stylesheet" type="text/css" href="../../css/light.css" /> -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/app.min.js" async></script>
+<!--    <script src="js/jquery-3.6.0.min.js" defer></script>-->
+    <script src="js/slick.min.js" defer></script>
+    <script src="js/main.min.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="icon" type="image/svg+xml" href="images/plato/platoLogo.png">
+</head>
+
+<body allowtransparency="true">
+<div id="preloader" class="preloader">
+    <div class="preloader__lines">
+        <div class="c-lines">
+            <div class="c-lines__line load-line" data-order="4"></div>
+            <div class="c-lines__line center load-line" data-order="-2.2"></div>
+            <div class="c-lines__line load-line" data-order="-4.6"></div>
+        </div>
+        <div class="h-lines">
+            <div class="h-lines__line left load-line" data-order="4"></div>
+            <div id="progress-line" class="h-lines__line left" data-order="1"></div>
+        </div>
+    </div>
+    <div class="preloader__progress">
+        <p class="text-mono anim-none">Loading...</p>
+        <p id="progress" class="h1 anim-none">0</p>
+    </div>
+</div>
+
+<div class="wrapper init">
+    <div id="cover">
+        <div class="c-lines">
+            <div class="c-lines__line clip-top"></div>
+            <div class="c-lines__line center clip-both"></div>
+            <div class="c-lines__line clip-bottom"></div>
+        </div>
+        <div class="outer-left"></div>
+        <div class="container">
+            <div class="inner-left"></div>
+            <div class="inner-right"></div>
+        </div>
+        <div class="outer-right"></div>
+    </div>
+
+    <!--  -->
+    <header class="header">
+        <div class="c-lines">
+            <div class="c-lines__line"></div>
+            <div class="c-lines__line center"></div>
+            <div class="c-lines__line"></div>
+        </div>
+        <div class="h-lines">
+            <div class="h-lines__line"></div>
+            <div class="h-lines__line"></div>
+        </div>
+        <div class="container">
+            <div class="header-grid">
+                <a href="index.html" class="header__icon anim anim-top-in" aria-label="Homepage" data-anim-order="1">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="100%" height="100%" viewBox="0 0 4500.000000 4500.000000"
+                         preserveAspectRatio="xMidYMid meet">
+
+                        <g transform="translate(0.000000,4500.000000) scale(0.100000,-0.100000)"
+                           fill="#202020" stroke="none">
+                            <path d="M10910 35395 l0 -1245 10963 -2 10962 -3 3 -7292 2 -7293 -5167 -2
+-5168 -3 0 -1245 0 -1245 6400 -2 c3520 -2 6406 1 6413 5 10 7 12 1931 12
+9778 0 5373 0 9775 0 9782 0 9 -2449 12 -12210 12 l-12210 0 0 -1245z"/>
+                            <path d="M11615 28088 c-3 -7 -4 -4398 -3 -9758 l3 -9745 1248 -3 1247 -2 0
+8510 0 8510 7380 0 7380 0 -2 1248 -3 1247 -8623 3 c-6893 2 -8624 0 -8627
+-10z"/>
+                        </g>
+                    </svg>
+                </a>
+                <div class="header__button anim-container">
+                    <a href="/get-in-touch.html" aria-label="Get in touch"
+                       class="button button-get-in-touch anim anim-top-in" data-anim-order="2">
+                        <span data-text="biz bilan bog'laning">biz bilan bog'laning</span>
+                    </a>
+                </div>
+                <div class="header__switcher anim-container">
+                    <button class="button button-theme anim anim-top-in" data-anim-order="3" aria-label="Switch Theme">
+                        <label id="theme-label" data-theme="night" data-theme-light="Kun" data-theme-dark="Tun">
+                            <input type="checkbox" aria-label="Theme">
+                        </label>
+                    </button>
+                </div>
+                <div class="header__menu anim-container">
+                    <button id="button-menu" class="button button-menu" aria-label="Menu">
+                        <span data-text="menu"></span>
+                        <div class="close"></div>
+                    </button>
+                </div>
+            </div>
+            <div id="button-menu-close"></div>
+        </div>
+    </header>
+    <div class="menu-wrapper">
+        <div class="menu">
+            <div class="c-lines">
+                <div class="c-lines__line"></div>
+                <div class="c-lines__line center"></div>
+                <div class="c-lines__line"></div>
+            </div>
+            <div class="h-lines">
+                <div class="h-lines__line bottom"></div>
+            </div>
+            <div class="container-grid">
+                <div class="container-grid__left">
+                    <nav id="menu-nav" class="menu__nav">
+                        <a href="smm.html" aria-label="Exhibita" class="menu__nav__item button-nav">
+                            <span data-text="Smm"></span>
+                        </a>
+                        <a href="website.html" aria-label="Visualiza" class="menu__nav__item button-nav">
+                            <span data-text="websites"></span>
+                        </a>
+                        <a href="branding.html" aria-label="Explora" class="menu__nav__item button-nav">
+                            <span data-text="branding"></span>
+                        </a>
+                        <a href="narxlar.html" aria-label="Showcases Exhibita"
+                           class="menu__nav__item button-nav">
+                            <span data-text="Narxlar"></span>
+                        </a>
+                        <a href="aloqa.html" aria-label="Get in touch" class="menu__nav__item button-nav">
+                            <span data-text="Biz bilan aloqa"></span>
+                        </a>
+                    </nav>
+                    <div class="menu__form form-subscribe">
+                        <div class="h-lines__line top left"></div>
+                        <label for="menu-subscribe" class="text-m dot-before">Obuna bo'ling</label>
+                        <div class="form-group">
+                            <input id="menu-subscribe" type="email" placeholder="EMAILNI YOZING" aria-label="Email">
+                            <input type="submit" value aria-label="JONATISH">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-grid__right">
+                    <div id="menu-nav-thumb" class="container-grid__thumbnail">
+                        <figure class="nav-photo anim-out">
+                            <picture>
+                                <source srcset="images/plato/marketing.jpg" type="image/webp">
+                                <img class="lazy" src="images/plato/marketing.jpg" alt="menu-image-1"></picture>
+                        </figure>
+                        <figure class="nav-photo anim-out">
+                            <picture>
+                                <source srcset="images/plato/website.jpg" type="image/webp">
+                                <img class="lazy" src="images/plato/website.jpg" alt="menu-image-2"></picture>
+                        </figure>
+                        <figure class="nav-photo anim-out">
+                            <picture>
+                                <source srcset="images/plato/brand.jpg" type="image/webp">
+                                <img class="lazy" src="images/plato/brand.jpg" alt="menu-image-3"></picture>
+                        </figure>
+                        <figure class="nav-photo anim-out">
+                            <picture>
+                                <source srcset="images/plato/price.jpg" type="image/webp">
+                                <img class="lazy" src="images/plato/price.jpg" alt="menu-image-4"></picture>
+                        </figure>
+                        <figure class="nav-photo anim-out">
+                            <picture>
+                                <source srcset="images/plato/call.jpg" type="image/webp">
+                                <img class="lazy" src="images/plato/call.jpg" alt="menu-image-5"></picture>
+                        </figure>
+                    </div>
+                    <div class="container-grid__subgrid">
+                        <div class="h-lines__line top left"></div>
+                        <div class="social">
+                            <div class="social-wrapper">
+                                <a href="https://www.instagram.com/plato_uz/" target="_blank" aria-label="Instagram"
+                                   class="link-ext">
+                                    <span data-text="instagram"></span>
+                                </a>
+                                <a href="https://t.me/Khasanov_ibroxim" target="_blank" aria-label="Telegram"
+                                   class="link-ext">
+                                    <span data-text="Telegram"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <div class="contact__text">
+                                <a href="tel:+998993045475" aria-label="Phone" class="link-hover-line">+998993045475</a>
+                            </div>
+                            <div class="h-lines">
+                                <div class="c-lines__line top left"></div>
+                                <div class="h-lines__line center left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+    <div id="cookies">
+        <div class="text">
+            <h4 class="h4 anim-none">This website uses cookies</h4>
+            <p class="text-m anim-none">
+                We use cookies to personalise content and ads, to provide social media features and to analyse our
+                traffic.
+            </p>
+        </div>
+        <div class="controls">
+            <button class="button button-secondary" data-action="cancel" aria-label="Cancel"><span
+                    data-text="Cancel"></span></button>
+            <button class="button primary button-primary" data-action="accept" aria-label="Accept">
+                <span data-text="Accept"></span>
+            </button>
+        </div>
+    </div>
+
+    <!--  -->
+    <template id="fullwidth-popup-template" data-class="fullwidth">
+        <div class="c-lines">
+            <div class="c-lines__line"></div>
+            <div class="c-lines__line center"></div>
+            <div class="c-lines__line"></div>
+        </div>
+        <div class="h-lines">
+            <div class="h-lines__line"></div>
+            <div class="h-lines__line"></div>
+        </div>
+        <div class="fullwidth-grid">
+            <button aria-label="Close" class="button button-close"></button>
+            <div class="fullwidth__content">
+                <template id="fullwidth-slider-template" data-class="fullwidth__slider"
+                          data-slide-class="fullwidth__slide" data-item-class="fullwidth__figure"></template>
+                <template id="fullwidth-video-template" data-class="fullwidth__video" data-item-class></template>
+            </div>
+            <p class="numb-v text-mono">
+                <span class="separator">| |</span>
+                <span class="numerator">
+				<span class="current">01</span>
+				-
+				<span class="count">05</span>
+			</span>
+            </p>
+            <div class="fullwidth__control">
+                <button class="button button-prev" type="button" data-role="none" aria-label="Previous"
+                        role="button"></button>
+                <button class="button button-next" type="button" data-role="none" aria-label="Next"
+                        role="button"></button>
+            </div>
+        </div>
+    </template>
+
+    <main class="main home">
+        <section class="section container-grid-banner">
+            <div class="h-lines">
+                <div class="h-lines__line"></div>
+            </div>
+            <div class="container container-grid__banner anim-in reverse" id="banner-grid">
+                <div class="overlay">
+                    <figure class="overlay-picture overlay-hover showcasesItem__banner__img banner-img c-p"
+                            data-fullwidth-popup="true" data-template-content=".video"
+                            data-template-selector="#home-banner-video1">
+                        <template id="home-banner-video1">
+                            <!-- <video class="video" controls> -->
+                            <!-- <source src="../img/home/home-banner-video-3.mp4" type="video/mp4" /> -->
+                            <!-- </video> -->
+                            <div class="video">
+                                <iframe src="https://player.vimeo.com/video/599388204" width="1540" height="800"
+                                        frameborder="0" allow="autoplay; fullscreen" aria-label="Home Banner"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </template>
+                        <figure class="figure">
+                            <picture>
+                                <source srcset="images/home-banner-1.webp" type="image/webp">
+                                <img class="lazy" src="images/home-banner-1.png" alt="home-banner"></picture>
+                            <div class="view-text">
+                                <div class="red-dot"></div>
+                                <p class="text-s">Videoni Korish</p>
+                            </div>
+                        </figure>
+                    </figure>
+
+                    <div class="overlay-text">
+                        <h2 data-parallax-mobile="enabled" data-parallax-ratio="1.3" data-parallax-margin="0"
+                            class="h1 parallax main-title showcasesItem__banner__title">
+                            Plato marketing
+                            <sup class="sup">®</sup>
+                            agency
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="banner-aside">
+                <a href aria-label="Solutions">Bizning Xizmtalarimiz</a>
+            </aside>
+
+            <div class="container container-grid__wrapper" data-height="#menu-nav" data-height-source="#banner-grid">
+                <!-- <div class="h-lines__line left bottom"></div> -->
+                <div class="container-grid__left">
+                    <div class="banner-blank-2">
+                        <div class="h-lines__line"></div>
+                    </div>
+                    <div class="banner-info anim-container">
+                        <small class="text-xs anim anim-bottom-in" data-anim-order="4">© 2022</small>
+                        <div class="banner-info__tags anim anim-bottom-in" data-anim-order="5">
+                            <p class="text-xs text-upper">Based In Tashkent</p>
+                            <p class="text-xs text-upper">with love</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-grid__subgrid anim-container">
+                    <div class="h-lines__line top left tablet"></div>
+                    <div class="h-lines__line bottom left tablet"></div>
+                    <div class="c-lines__line center-h"></div>
+                    <div class="social">
+                        <div class="social-wrapper anim anim-bottom-in" data-anim-order="6">
+                            <!--					<a href="https://www.facebook.com/PinPoint-Visualisation-106244368463730" target="_blank" aria-label="Facebook" class="link-ext">-->
+                            <!--						<span data-text="facebook"></span>-->
+                            <!--					</a>-->
+                            <a href="https://www.instagram.com/plato_uz/" target="_blank" aria-label="Instagram"
+                               class="link-ext">
+                                <span data-text="instagram"></span>
+                            </a>
+                            <a href="https://t.me/Khasanov_ibroxim" target="_blank" aria-label="Telegram"
+                               class="link-ext">
+                                <span data-text="Telegram"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="arrow anim anim-bottom-in" data-anim-order="7">
+                        <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M76.2345 22.9685C77.1942 22.918 78 23.6826 78 24.6436V76.3226C78 77.249 77.249 78 76.3226 78H24.6436C23.6826 78 22.918 77.1942 22.9685 76.2345L23.1722 72.366C23.219 71.4751 23.9551 70.7768 24.8472 70.7768H65.4545L0.491299 5.81365C-0.163765 5.15859 -0.163768 4.09652 0.491299 3.44146L3.44146 0.491298C4.09652 -0.163765 5.15859 -0.163767 5.81365 0.491297L70.7768 65.4545V24.8472C70.7768 23.9551 71.4751 23.219 72.366 23.1721L76.2345 22.9685Z"
+                                  fill="black"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="c-lines">
+            <div class="c-lines__line"></div>
+            <div class="c-lines__line center"></div>
+            <div class="c-lines__line"></div>
+        </div>
+        <div class="h-lines">
+            <div class="h-lines__line"></div>
+        </div>
+        <section class="section section-scroll">
+            <div class="h-lines">
+                <div class="h-lines__line"></div>
+            </div>
+            <div class="scroll">
+                <div class="scroll__wrapper">
+                    <aside class="side side-1">
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--01
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    Marketing bu - investitsiya yoki xarajat?
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title"> SMM</h2>
+                                <div class="page__description">
+                                    <p>
+                                        Biz sizning veb saytingiz va ijtimoiy tarmoqlaringizga sotib olishga tayyor
+                                        mijozlar oqimini yo'naltiramiz. Pullik va organik traffik manbalari orqali.
+                                        Sizga tashrif buyuruvchilarning sizning mijozingiz bo'lib qolishini
+                                        ta'minlaydigan strategiyalar orqali sotuvlaringiz miqdorini oshiramiz.
+                                        Sahifangizga tashrif buyurib, sizdan sotib olmaganlar uchun retargeting orqali
+                                        ularni ta'qib qiluvchi reklamalar yuritamiz - toki sizdan sotib olishmagunicha.
+                                    </p>
+
+                                </div>
+                                <a href="/smm.html" aria-label="Exhibita" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/marketing.jpg" type="image/jpg">
+                                        <img class="lazy" src="images/plato/marketing.jpg" alt="Slide1"></picture>
+                                </figure>
+                                <a href="/smm.html" aria-label="Exhibita"
+                                   class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--02
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    Sotuv moshinasi xohlaysizmi?
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title">Website yaratish</h2>
+                                <div class="page__description">
+                                    <p>
+                                        Kuchli anatomiyaga ega veb-sayt bu ishni siz uchun amalga oshiradi. Biz bilan
+                                        bog'laning va shunday veb-saytga ega bo'ling.
+                                    </p>
+                                </div>
+                                <a href="/visualiza.html" aria-label="Visualiza" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/website.jpg" type="image/webp">
+                                        <img class="lazy" src="images/plato/website.jpg" alt="Slide2"></picture>
+                                </figure>
+                                <a href="/visualiza.html" aria-label="Visualiza"
+                                   class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--03
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    KUCHLI BREND
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title">Branding</h2>
+                                <div class="page__description">
+                                    <p>
+                                        Statistika ma'lumotlariga qaraganda
+                                    </p>
+                                    <p>KUCHLI BREND DIZAYN MIJOZLAR ONGIDA 92% YAXSHIROQ QOLADI</p>
+                                </div>
+                                <a href="/explora.html" aria-label="Explora" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/brand.jpg" type="image/webp">
+                                        <img class="lazy" src="images/plato/brand.jpg" alt="Slide3"></picture>
+                                </figure>
+                                <a href="/explora.html" aria-label="Explora" class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+                    </aside>
+
+                    <aside class="side side-2">
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--01
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    Marketing bu - investitsiya yoki xarajat?
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title">SMM</h2>
+                                <div class="page__description">
+
+                                    <p>
+                                        Biz sizning veb saytingiz va ijtimoiy tarmoqlaringizga sotib olishga tayyor
+                                        mijozlar oqimini yo'naltiramiz. Pullik va organik traffik manbalari orqali.
+                                        Sizga tashrif buyuruvchilarning sizning mijozingiz bo'lib qolishini
+                                        ta'minlaydigan strategiyalar orqali sotuvlaringiz miqdorini oshiramiz.
+                                        Sahifangizga tashrif buyurib, sizdan sotib olmaganlar uchun retargeting orqali
+                                        ularni ta'qib qiluvchi reklamalar yuritamiz - toki sizdan sotib olishmagunicha.
+                                    </p>
+                                </div>
+                                <a href="/exhibita.html" aria-label="Exhibita" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/marketing.jpg" type="image/webp">
+                                        <img class="lazy" src="images/plato/marketing.jpg" alt="Slide1"></picture>
+                                </figure>
+                                <a href="/exhibita.html" aria-label="Exhibita"
+                                   class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--01
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    Sotuv moshinasi xohlaysizmi?
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title">Website yaratish</h2>
+                                <div class="page__description">
+                                    <p>
+                                        Kuchli anatomiyaga ega veb-sayt bu ishni siz uchun amalga oshiradi. Biz bilan
+                                        bog'laning va shunday veb-saytga ega bo'ling.
+                                    </p>
+                                </div>
+                                <a href="/exhibita.html" aria-label="Exhibita" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/website.jpg" type="image/webp">
+                                        <img class="lazy" src="images/plato/website.jpg" alt="Slide2"></picture>
+                                </figure>
+                                <a href="/exhibita.html" aria-label="Exhibita"
+                                   class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <section class="page">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                00--01
+                            </p>
+                            <div class="page__row">
+                                <h5 class="text-l text-dots">
+                                    KUCHLI BREND
+                                    <span class="dots"></span>
+                                </h5>
+                                <h2 class="page__title">Branding</h2>
+                                <div class="page__description">
+                                    <p>
+                                        Statistika ma'lumotlariga qaraganda
+                                    </p>
+                                    <p>KUCHLI BREND DIZAYN MIJOZLAR ONGIDA 92% YAXSHIROQ QOLADI</p>
+                                </div>
+                                <a href="/exhibita.html" aria-label="Exhibita" class="link">Batafsil ma'lumot oling</a>
+                            </div>
+                            <div class="page__picture">
+                                <figure class="page__figure anim-none">
+                                    <picture>
+                                        <source srcset="images/plato/brand.jpg" type="image/webp">
+                                        <img class="lazy" src="images/plato/brand.jpg" alt="Slide3"></picture>
+                                </figure>
+                                <a href="/exhibita.html" aria-label="Exhibita"
+                                   class="btn-explore button button-explore">
+                                    <span data-text="kashf qiling"></span>
+                                </a>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <section class="showcasesItem v-2">
+                <div class="h-lines">
+                    <div class="h-lines__line"></div>
+                </div>
+
+                <div class="showcasesItem__banner">
+                    <div class="overlay">
+                        <figure class="overlay-hover overlay-picture showcasesItem__banner__img c-p"
+                                data-fullwidth-popup="true" data-template-content=".video"
+                                data-template-selector="#home-banner-video2">
+                            <template id="home-banner-video2">
+                                <!-- <video class="video" preload="none" controls>
+                                <source src="../img/home/home-banner-video-22.mp4" type="video/mp4" />
+                            </video> -->
+                                <div class="video">
+                                    <iframe aria-label="Home About" allowtransparency="true"
+                                            src="https://player.vimeo.com/video/599388204?transparent=1" width="1540"
+                                            height="800" frameborder="0" allow="autoplay; fullscreen"></iframe>
+                                </div>
+                            </template>
+                            <figure class="figure">
+                                <picture>
+                                    <source srcset="images/home-about-us1.webp" type="image/webp">
+                                    <img class="lazy" src="images/home-about-us1.png" alt="about-us"></picture>
+                                <div class="view-text">
+                                    <div class="red-dot"></div>
+                                    <p class="text-s">view showreel</p>
+                                </div>
+                            </figure>
+                        </figure>
+
+                        <div class="overlay-text">
+                            <h2 class="overlay-text__inner">
+                                Biz
+                                <br>
+                                Haqimizda
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- <h2
+                        data-text-overlay="true"
+                        data-parallax-ratio="1.3"
+                        data-parallax-margin="-110"
+                        data-parallax-set="false"
+                        class="parallax showcasesItem__banner__title"
+                    >
+                        About
+                        <br />
+                        us
+                    </h2> -->
+                    <div class="showcasesItem__banner__othar">
+                        <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.76555 22.9685C0.805847 22.918 0 23.6826 0 24.6436V76.3226C0 77.249 0.750999 78 1.67739 78H53.3564C54.3174 78 55.082 77.1942 55.0315 76.2345L54.8278 72.366C54.781 71.4751 54.0449 70.7768 53.1528 70.7768H12.5455L77.5087 5.81365C78.1638 5.15859 78.1638 4.09652 77.5087 3.44146L74.5585 0.491298C73.9035 -0.163765 72.8414 -0.163767 72.1863 0.491297L7.22319 65.4545V24.8472C7.2232 23.9551 6.52486 23.219 5.63396 23.1721L1.76555 22.9685Z"
+                                  fill="black"/>
+                        </svg>
+                        <p class="numb-s text-mono">
+                            //
+                            <br>
+                            02--01
+                        </p>
+                    </div>
+                </div>
+
+                <div class="showcasesItem__content">
+                    <div class="showcasesItem__content__left"></div>
+
+                    <div class="showcasesItem__content__right">
+                        <div class="showcasesItem__content__text">
+                            <p class="text-m">
+                          Bizning maqsadimiz
+                            </p>
+                            <p class="text-m">
+                               Faqatgina internet tarqmog'idagi sahifangizni emas ,
+                            </p>
+                            <p class="text-m">
+                                Sizning biznesingizni haqiqatdan ham rivojlantirish
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contentBlocks">
+                <!-- <div class="contentBlocks__left"> -->
+
+                <div class="contentBlock b-1">
+                    <div class="h-lines">
+                        <div class="h-lines__line"></div>
+                    </div>
+
+                    <div class="contentBlock__wrapp">
+                        <figure class="iframe">
+                            <!-- <picture><source srcset="../img/home/home-about-111.gif" type="image/webp"><img class="lazy" src="../img/home/home-about-111.gif" alt="home-case-1" /></picture> -->
+                            <iframe aria-label="Our client" allowtransparency="true"
+                                    src="https://player.vimeo.com/video/599388589?transparent=1" width="640"
+                                    height="564" frameborder="0" allow="autoplay; fullscreen"></iframe>
+                        </figure>
+                        <p class="text-m">
+                            Bizga ishonch bildirganlar Professional jamoaga ega bo'ladi
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contentBlock b-3">
+                    <div class="contentBlock__wrapp">
+                        <div class="between">
+                            <p class="numb-s text-mono">
+                                //
+                                <br>
+                                02--02
+                            </p>
+                            <div class="square"></div>
+                        </div>
+                        <h3 class="title">
+                            We take more carbon out of the air than we emit.
+                            <br>
+                            For every sale,
+                            <br>
+                            we plant more trees
+                        </h3>
+                        <p class="text-m">
+                                   The reforestation projects we fund aren’t certified as carbon
+                            offsets; the carbon emissions they will sequester will happen in the future. Thus, we only
+                            use
+                            certified offsets from our other projects (such as renewable energy) for reporting on
+                            offsetting our
+                            carbon footprint.
+                        </p>
+                        <p class="text-m">
+                                   This combination of making reductions today and planning
+                            reductions in the future is our approach to a comprehensive strategy of limiting climate
+                            change.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- </div> -->
+
+                <!-- <div class="contentBlocks__right"> -->
+
+                <div class="contentBlock b-2">
+                    <div class="contentBlock__wrapp">
+                        <div class="between">
+                            <svg width="78" height="78" viewBox="0 0 78 78" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39 8V70" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M50 8C50 14.0751 45.0751 19 39 19C32.9249 19 28 14.0751 28 8" stroke="black"
+                                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M50 27C50 33.0751 45.0751 38 39 38C32.9249 38 28 33.0751 28 27" stroke="black"
+                                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M50 46C50 52.0751 45.0751 57 39 57C32.9249 57 28 52.0751 28 46" stroke="black"
+                                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg width="78" height="78" viewBox="0 0 78 78" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39 8V70" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M39 35L27 22" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M39 45L51 32" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <rect x="27" y="8" width="24" height="49" rx="12" stroke="black" stroke-width="3"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg width="78" height="78" viewBox="0 0 78 78" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39 8V70" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M51 18L39 8L27 18" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M51 35L39 25L27 35" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M51 51L39 41L27 51" stroke="black" stroke-width="3" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p class="text-l title no-wrap">Katta hamkor Blogerlar bazasi</p>
+                        <div class="pad">
+                            <figure class="iframe">
+                                <!-- <picture><source srcset="../img/home/home-about-222.gif" type="image/webp"><img class="lazy" src="../img/home/home-about-222.gif" alt="home-case-2" /></picture> -->
+                                <iframe aria-label="Climate workspace" allowtransparency="true"
+                                        src="https://player.vimeo.com/video/599386794?transparent=1" width="640"
+                                        height="564" frameborder="0" allow="autoplay; fullscreen"></iframe>
+                            </figure>
+                            <p class="text-m">
+                                Sizga kerakli auditoriyaga ega Blogerlar bilan kollaboratsiya qilamiz
+                            </p>
+<!--                            <p class="text-m">-->
+<!--                                Our mangrove trees capture up to four times as much carbon per acre than tropical-->
+<!--                                rainforests.-->
+<!--                                Three-quarters of tropical fish rely on their root systems for nurseries and shelter.-->
+<!--                            </p>-->
+                        </div>
+                        <figure class="special">
+                            <picture>
+                                <source srcset="images/home-about-3.webp" type="image/webp">
+                                <img class="lazy" src="images/home-about-3.png" alt="home-case-2-img"></picture>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- </div> -->
+            </section>
+
+
+            <section class="feedback-form">
+                <h3 class="feedback-form__title">Biz bilan bog'laning</h3>
+                <div class="feedback-grid">
+                    <div class="feedback-info">
+                        <div class="feedback-info__location">
+                            <div class="feedback-info__location__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M15.3482 20.0381C16.3509 18.0326 17 15.1921 17 12C17 8.80787 16.3509 5.96739 15.3482 3.96193C14.3156 1.89666 13.074 1 12 1C10.926 1 9.68442 1.89666 8.65179 3.96193C7.64906 5.96739 7 8.80787 7 12C7 15.1921 7.64906 18.0326 8.65179 20.0381C9.68442 22.1033 10.926 23 12 23C13.074 23 14.3156 22.1033 15.3482 20.0381ZM12 24C15.3137 24 18 18.6274 18 12C18 5.37258 15.3137 0 12 0C8.68629 0 6 5.37258 6 12C6 18.6274 8.68629 24 12 24Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M22.2873 6.06061C22.1195 5.77045 21.9408 5.48798 21.7517 5.21381C19.5737 2.0564 16.0174 0 12 0C7.98263 0 4.42634 2.0564 2.24832 5.2138C2.05919 5.48798 1.88045 5.77045 1.71271 6.06061C1.98601 6.21188 2.28848 6.35663 2.61754 6.494C4.81636 7.4119 8.20214 8 12 8C15.7979 8 19.1836 7.4119 21.3825 6.494C21.7115 6.35663 22.014 6.21188 22.2873 6.06061ZM20.8292 5.63981C18.8169 2.8136 15.6036 1 12 1C8.39644 1 5.18306 2.8136 3.17077 5.63981C5.19667 6.44517 8.3577 7 12 7C15.6423 7 18.8033 6.44517 20.8292 5.63981Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M1.71271 17.9394C1.88046 18.2295 2.0592 18.512 2.24832 18.7862C4.42635 21.9436 7.98263 24 12 24C16.0174 24 19.5737 21.9436 21.7517 18.7862C21.9408 18.512 22.1195 18.2295 22.2873 17.9394C22.014 17.7881 21.7115 17.6434 21.3825 17.506C19.1836 16.5881 15.7979 16 12 16C8.20214 16 4.81636 16.5881 2.61755 17.506C2.28849 17.6434 1.98601 17.7881 1.71271 17.9394ZM3.17077 18.3602C5.18306 21.1864 8.39645 23 12 23C15.6036 23 18.8169 21.1864 20.8292 18.3602C18.8033 17.5548 15.6423 17 12 17C8.35771 17 5.19668 17.5548 3.17077 18.3602Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M12 24V0L13 4.37112e-08L13 24H12Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12H0V11H24V12Z"/>
+                                </svg>
+                            </div>
+                            <span data-time="true" class="feedback-info__time text-l">12:32</span>
+                            <div class="feedback-info__city text-l">Tashkent</div>
+                        </div>
+                        <a href="tel:+998993045475" class="feedback-info__phone link-hover-line"
+                           aria-label="Phone">
+                            +998 99 304 54 75
+                        </a>
+
+                        <div class="h-lines">
+                            <div class="h-lines__line"></div>
+                            <div class="h-lines__line"></div>
+                        </div>
+                    </div>
+
+                    <form class="sendform-js feedback-fields" action='./mail.php' method='post'>
+                        <label class="input-group">
+                            Ismingiz:
+                            <input type="text" name="name" aria-label="Name">
+                            <div class="h-lines__line"></div>
+                            <div class="h-lines__line top tablet"></div>
+                        </label>
+                        <label class="input-group">
+                            Telefon nomer:
+                            <input type="tel" name="telephone" aria-label="Telephone">
+                            <div class="h-lines__line"></div>
+                        </label>
+                        <label class="input-group">
+                            Izox qoldirish:
+                            <div class="text-submit">
+                                <textarea name="message"></textarea>
+                                <div class="btn-explore">
+                                    <button aria-label="Submit" type="submit" class="button button-explore button-invert">
+                                        <span data-text="Submit"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </label>
+                        <p class="form-mess fgm text-s">E'tiboringiz uchun raxmat siz bilan tez orada bog'lanamza</p>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="c-lines">
+            <div class="c-lines__line"></div>
+            <div class="c-lines__line"></div>
+        </div>
+        <div class="h-lines">
+            <div class="h-lines__line"></div>
+        </div>
+        <div class="container">
+            <div class="container-inner footer-grid">
+                <div class="footer-col form-subscribe">
+                    <label for="footer-subscribe" class="text-m dot-before">STAY INFORMED</label>
+                    <form class="sendform-js form-group">
+                        <input id="footer-subscribe" type="email" placeholder="YOUR EMAIL" aria-label="Email">
+                        <input type="submit" value aria-label="Submit">
+                        <p class="form-mess ffm text-s">Thank you for signing up for our newsletter</p>
+                    </form>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/PinPoint-Visualisation-106244368463730" target="_blank"
+                           aria-label="Facebook" class="link-ext">
+                            <span data-text="facebook"></span>
+                        </a>
+                        <a href="https://www.instagram.com/pinpointcgi/" target="_blank" aria-label="Instagram"
+                           class="link-ext">
+                            <span data-text="instagram"></span>
+                        </a>
+                        <a href="https://twitter.com/PinPointCGI" target="_blank" aria-label="Twitter" class="link-ext">
+                            <span data-text="twitter"></span>
+                        </a>
+                    </div>
+                    <div class="footer-other">
+                        <small class="footer-copyrights">© Pinpoint Visualisation LTD, 2021</small>
+                        <small class="footer-architected">
+                            Architected by
+                            <a href="https://bachoodesign.com/" target="_blank" aria-label="Bachoo" class="link-line">Báchoo</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<script data-cfasync="false" src="js/email-decode.min.js"></script>
+
+</body>
+</html>
